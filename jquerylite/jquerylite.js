@@ -49,7 +49,7 @@
         console.log("It didn't work :(");
       },
       method: "get",
-      data: "",
+      data: {},
       contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
     };
     var request = root.$l.extend(defaultt, options);
@@ -63,7 +63,7 @@
     xmlhttp.onreadystatechange = function() {
       if (xmlhttp.readyState == XMLHttpRequest.DONE ) {
         if(xmlhttp.status == 200){
-            options.success(xmlhttp.responseText);
+            options.success(JSON.parse(xmlhttp.responseText));
         }
         else if(xmlhttp.status == 400) {
           options.error();
@@ -76,7 +76,7 @@
 
 
     xmlhttp.open(options.method, options.url, true);
-    xmlhttp.send();
+    xmlhttp.send(options.data);
   };
 
   var DOMNodeCollection = function (HTMLElements) {

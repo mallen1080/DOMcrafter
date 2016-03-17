@@ -1,0 +1,6 @@
+// (function() {
+//   var Coord = function () {
+//
+//   };
+//
+// };)()

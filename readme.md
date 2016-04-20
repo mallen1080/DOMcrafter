@@ -15,4 +15,8 @@ into your repo.
 
 Including DOMcrafter gives you the following functions:
 
-- `$l(argument)`:  stuff
+- `$l(argument)`:  can take a function, DOMelement, or selector (as a string)
+  - function: the given function will be invoked as soon as the DOM has fully loaded
+  - DOMelement: converts the DOMelement into a DOMcrafter object
+  - selector: finds all elements on the document that match the selector and returns DOMcrafter object
+- `$l.ajax(options)`: 

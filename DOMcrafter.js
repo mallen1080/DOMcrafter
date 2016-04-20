@@ -180,11 +180,11 @@
     return parentDoms;
   };
 
-  DOMNodeCollection.prototype.find = function (value) {
+  DOMNodeCollection.prototype.find = function (selector) {
     var retDoms = new DOMNodeCollection([]);
 
     for (var i = 0; i < this.HTMLElements.length; i++) {
-      var retObj = this.HTMLElements[i].querySelectorAll(value);
+      var retObj = this.HTMLElements[i].querySelectorAll(selector);
       retObj = [].slice.call(retObj);
       retDoms.HTMLElements = retDoms.HTMLElements.concat(retObj);
     }

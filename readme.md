@@ -6,11 +6,6 @@ all of the core functionality of jQuery, but without the unnecessary weight.
 DOMcrafter is a great option if you will be only using the core $(), $.ajax,
 or #addClass functions.
 
-### Using DOMcrafter
-
-To include DOMcrafter in your project, simply include the DOMcrafter.js file
-into your repo.
-
 ### Functionality
 
 Including DOMcrafter gives you the following functions:
@@ -31,11 +26,11 @@ Including DOMcrafter gives you the following functions:
 - `#attr(attribute, value)`: accepts an attribute and and optional value
   - If no value is given: returns the value of the given attribute for the first collection element
   - If a value is given: sets the attribute to the specified value for all collection elements
-- `#addClass`:
-- `#removeClass`:
-- `#children`:
-- `#parent`:
-- `#find`:
-- `#remove`:
-- `#on`:
-- `#off`:
+- `#addClass(class)`: adds the specified class to all collection elements
+- `#removeClass`: removes the specified class from all collection elements
+- `#children`: returns a DOMcrafter object of the direct children of all collection elements
+- `#parent`: return a DOMcrafter object of the direct parents of all collection elements
+- `#find(selector)`: returns all descendants of current collection elements where the selector is a match
+- `#remove()`: removes all collection elements from the DOM
+- `#on(type, callback)`: adds an event listener of given type for all collection elements
+- `#off(type, callback)`: removes all event listeners of given type for all collection elements

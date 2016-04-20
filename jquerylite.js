@@ -7,7 +7,6 @@
   });
 
   root.$l = function (arg) {
-
     if (typeof arg === "function") {
       if (root.document.readyState === "complete") {
         arg();
@@ -48,6 +47,7 @@
       error: function () {
         console.log("It didn't work :(");
       },
+      complete: function () {},
       method: "get",
       data: {},
       contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
@@ -57,8 +57,7 @@
   };
 
   root.$l.loadXMLDoc = function (options) {
-    var xmlhttp;
-    xmlhttp = new XMLHttpRequest();
+    var xmlhttp = new XMLHttpRequest();
 
     xmlhttp.onreadystatechange = function() {
       if (xmlhttp.readyState == XMLHttpRequest.DONE ) {
@@ -69,8 +68,9 @@
           options.error();
         }
         else {
-          alert('something else other than 200 was returned');
+          console.log('something other than 200 was returned');
         }
+        options.complete();
       }
     };
 
@@ -104,7 +104,7 @@
     }
 
     if (typeof child === "string") {
-      this.HTMLElements.forEach ( function (parent) {
+      this.HTMLElements.forEach (function (parent) {
         parent.innerHTML += child;
       });
       return;
@@ -114,7 +114,7 @@
       child = child.HTMLElements;
     }
 
-    this.HTMLElements.forEach( function (parent) {
+    this.HTMLElements.forEach(function (parent) {
       child.forEach(function (eachChild) {
         parent.appendChild(eachChild);
       });
@@ -126,7 +126,7 @@
     if (value === undefined) {
       return this.HTMLElements[0].getAttribute(name);
     } else {
-      this.HTMLElements.forEach( function (el) {
+      this.HTMLElements.forEach(function (el) {
         el.setAttribute(name, value);
       });
       return this.HTMLElements;
@@ -134,12 +134,11 @@
   };
 
   DOMNodeCollection.prototype.addClass = function (value) {
-    this.HTMLElements.forEach( function (el) {
+    this.HTMLElements.forEach(function (el) {
       var old = el.className;
       if (old) {
         if (!_stringIncludes(old, value)) {
-          var newValue = old + " " + value;
-          el.className = newValue;
+          el.className = old + " " + value;
         }
       } else {
         el.className = value;
@@ -150,22 +149,17 @@
   };
 
   DOMNodeCollection.prototype.removeClass = function (value) {
-    this.HTMLElements.forEach( function (el) {
+    this.HTMLElements.forEach(function (el) {
       var old = el.className;
       if (old) {
         var arrOld = old.split(' ');
-        var arrNew = arrOld.map( function (el) {
-          if (el === value) {
-            return "";
-          } else {
-            return el;
-          }
+        var arrNew = arrOld.filter(function (klass) {
+          return klass !== value;
         });
-        var newValue = arrNew.join(' ');
-        el.className = newValue;
+        el.className = arrNew.join(' ');
       }
-
     });
+
     return this.HTMLElements;
   };
 
@@ -237,16 +231,4 @@
     return false;
   };
 
-
 })(this);
-
-
-$l( function() {
-  $lis = $l('li');
-  $lis.html("it worked!!??!");
-});
-
-$l( function() {
-  $li = $l('li');
-  $li.append("it worked again");
-});

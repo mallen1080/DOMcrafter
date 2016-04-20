@@ -6,7 +6,7 @@
     });
   });
 
-  root.$l = function (arg) {
+  root.$d = function (arg) {
     if (typeof arg === "function") {
       if (root.document.readyState === "complete") {
         arg();
@@ -25,7 +25,7 @@
     return new DOMNodeCollection(selected);
   };
 
-  root.$l.extend = function () {
+  root.$d.extend = function () {
     var args = [].slice.call(arguments);
     var retObj = args[0];
     for (var i = 1; i < args.length; i++) {
@@ -38,37 +38,29 @@
     return retObj;
   };
 
-  root.$l.ajax = function (options) {
+  root.$d.ajax = function (options) {
     var defaultt = {
-      url: "www.google.com",
-      success: function (str) {
-        console.log(str);
-      },
-      error: function () {
-        console.log("It didn't work :(");
-      },
+      url: document.location.href,
+      success: function () {},
+      error: function () {},
       complete: function () {},
       method: "get",
       data: {},
       contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
     };
-    var request = root.$l.extend(defaultt, options);
-    root.$l.loadXMLDoc(request);
+    var request = root.$d.extend(defaultt, options);
+    root.$d.loadXMLDoc(request);
   };
 
-  root.$l.loadXMLDoc = function (options) {
+  root.$d.loadXMLDoc = function (options) {
     var xmlhttp = new XMLHttpRequest();
 
     xmlhttp.onreadystatechange = function() {
       if (xmlhttp.readyState == XMLHttpRequest.DONE ) {
         if(xmlhttp.status == 200){
             options.success(JSON.parse(xmlhttp.responseText));
-        }
-        else if(xmlhttp.status == 400) {
+        } else if(xmlhttp.status == 400) {
           options.error();
-        }
-        else {
-          console.log('something other than 200 was returned');
         }
         options.complete();
       }

@@ -15,8 +15,21 @@ into your repo.
 
 Including DOMcrafter gives you the following functions:
 
-- `$l(argument)`:  can take a function, DOMelement, or selector (as a string)
+- `$d(argument)`:  can take a function, DOMelement, or selector (as a string)
   - function: the given function will be invoked as soon as the DOM has fully loaded
   - DOMelement: converts the DOMelement into a DOMcrafter object
   - selector: finds all elements on the document that match the selector and returns DOMcrafter object
-- `$l.ajax(options)`: 
+- `$d.ajax(options)`: performs an asynchronous XMLHTTPRequest
+  - If no options are given, the url is defaulted to the current page url, and the method is defaulted to a "get"
+- `#html`:
+- `#empty`:
+- `#append`:
+- `#attr`:
+- `#addClass`:
+- `#removeClass`:
+- `#children`:
+- `#parent`:
+- `#find`:
+- `#remove`:
+- `#on`:
+- `#off`:

@@ -74,7 +74,6 @@
       }
     };
 
-
     xmlhttp.open(options.method, options.url, true);
     xmlhttp.send(options.data);
   };

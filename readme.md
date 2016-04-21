@@ -3,8 +3,12 @@
 DOMcrafter is a javascript library meant to give you the tools necessary
 for easy manipulation of the Document Object Model (DOM).  It includes
 all of the core functionality of jQuery, but without the unnecessary weight.
-DOMcrafter is a great option if you will be only using the core $(), $.ajax,
+DOMcrafter is a great option if you will be only using the core $d(), $d.ajax, #on(event),
 or #addClass functions.
+
+### Live Example
+
+A live example on DOMcrafter's use can be seen [Here](www.github.com/mallen1080/Langtons-Ant "Langton's Ant")
 
 ### Functionality
 

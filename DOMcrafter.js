@@ -74,6 +74,10 @@
     this.HTMLElements = HTMLElements;
   };
 
+  DOMNodeCollection.prototype.bracket = function (index) {
+  return this.HTMLElements[index];
+  };
+
   DOMNodeCollection.prototype.html = function (string) {
     if (string === undefined) {
       return this.HTMLElements[0].innerHTML;

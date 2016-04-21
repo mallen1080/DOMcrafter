@@ -8,7 +8,7 @@ or #addClass functions.
 
 ### Live Example
 
-A live example on DOMcrafter's use can be seen [Here](http://www.github.com/mallen1080/Langtons-Ant "Langton's Ant")
+A live example of DOMcrafter's use can be seen [here](http://www.github.com/mallen1080/Langtons-Ant "Langton's Ant")
 
 ### Functionality
 

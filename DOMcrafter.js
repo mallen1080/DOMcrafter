@@ -93,7 +93,6 @@
     if (child instanceof HTMLElement) {
       child = [child];
     }
-
     if (typeof child === "string") {
       this.HTMLElements.forEach (function (parent) {
         parent.innerHTML += child;
@@ -209,6 +208,10 @@
     this.HTMLElements.forEach(function (el) {
       el.removeEventListener(type, callback);
     });
+  };
+
+  DOMNodeCollection.prototype.click = function (callback) {
+    this.on("click", callback);
   };
 
   var _stringIncludes = function (string1, string2) {

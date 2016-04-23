@@ -12,7 +12,7 @@ A live example of DOMcrafter's use can be seen [here](http://www.github.com/mall
 
 ### Functionality
 
-Including DOMcrafter gives you the following functions:
+Including DOMcrafter gives you the following functions and more:
 
 - `$d(argument)`:  accepts a function, DOMelement, or selector (as a string)
   - function: the given function will be invoked as soon as the DOM has fully loaded

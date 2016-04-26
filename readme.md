@@ -38,3 +38,4 @@ Including DOMcrafter gives you the following functions and more:
 - `#remove()`: removes all collection elements from the DOM
 - `#on(type, callback)`: adds an event listener of given type for all collection elements
 - `#off(type, callback)`: removes all event listeners of given type for all collection elements
+- `#bracket(index)`: brackets into collection elements and returns element at given index
